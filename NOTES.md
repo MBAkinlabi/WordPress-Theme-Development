@@ -1,4 +1,30 @@
-# Part 1 - WordPress Theme Development - Custom Font Icon and Folder Structure (Initial Commit)
-- I downloaded WordPress.
-- I downloaded MAMP
-- I quickly committed because of the newly downloaded WordPress software.
+# Part 1 - WordPress Theme Development - Custom Font Icon and Folder Structure 
+- I downloaded WordPress (Initial commit)
+- I downloaded MAMP (Initial commit)
+- Already commited in the last...
+- Now moving on to making some changes. 
+- I searched for "what is the best mysql database collation for wordpress" and found that `utf8mb4_unicode_ci` is the best through this StackOverflow https://stackoverflow.com/questions/367711/what-is-the-best-collation-to-use-for-mysql-with-php and https://www.bramvandenbulcke.be/en/kb/recommended-database-charset-and-collation-wordpress
+- I set up my database name `my-first
+- `Charset: utf8mb4` and `Collation: utf8mb4_unicode_ci`
+- Rename `wp-config-sample.php` to `wp-config.php`
+- Wow, my WordPress is now up and running.
+- In the `wp-config.php` file. Change `WP_DEBUG` to `true`. It's `false by default. It lets us see php erros, warnings and all other. Change it back to `false` when you're done.
+- I learned about `icomoon.io`.
+- I imported all the `.svg` files that I downloaded for the project and uploaded it on the website through the app.
+- Wow, I converted all my icons into vector fonts. I imported them and I was able to do all that. Now, I can use them on the fly. 
+- What happened was that the SVG are cached and I use it from them. As long as I don't delete cache, my icons are there.
+- Before clicking download, click on the small setting icon beside the `Download` button and remove the name of the `iconmoon`. Change it to sunset-icon
+- Change the class prefix to `sunset`
+- Note that Instructor is just doing this to enable a customized feel for the theme he wants to build. Nothing really special is happening here.
+- Go to the `CSS Selector` and check `Use a class`
+- Change the class to `.sunset-icon`
+- If you've created a really cool font, you can customize the metadata. 
+- Close the tab and download the fonts.
+- Go to `wp-content/themes`
+- Created the `my-first` folder there.
+- Creating the folder structure I want in this theme. 
+- `inc` folder is to put different files that handle different functions.
+- We created the fonts folder in the CSS and pasted all the vector fonts we generated before. Wow. 
+- You have to add your screenshot too. It's a preview. It has to be 1200 x 900.
+- If you're creating yours, it has to be 1200 x 900 and named `screenshot.png` 
+- We did what others we had to do and then go to the WordPress dashboard, Appearance and Themes, and can see that the Theme is there. Wow.
