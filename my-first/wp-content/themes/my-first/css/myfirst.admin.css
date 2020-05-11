@@ -1,0 +1,38 @@
+/* 
+    @package MyFirst theme 
+*/
+
+.myfirst-general-form,
+.myfirst-sidebar-preview { 
+    display: inline-block;
+    float: left;
+}
+
+.myfirst-sidebar-preview {
+    width: 280px;
+    background-color: #1f1f1f;
+    padding: 20px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.myfirst-sidebar {
+    display: block;
+    text-align: center;
+}
+
+h1.myfirst-username,
+h2.myfirst-description {
+    font-weight: 100;
+    color: #fff;
+}
+
+.h1.myfirst-username {
+    font-size: 24px;
+    margin: 0 0 10px;
+}
+
+ .h2.myfirst-description {
+     font-size: 13px;
+     margin: 0 0 20px;
+ }

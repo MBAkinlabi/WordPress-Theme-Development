@@ -26,6 +26,7 @@ add_action( 'admin_menu', 'myfirst_add_admin_page' );
 function myfirst_custom_settings() {
     register_setting( 'myfirst-settings-group', 'first_name' );
     register_setting( 'myfirst-settings-group', 'last_name' );
+    register_setting( 'myfirst-settings-group', 'user_description' );
     register_setting( 'myfirst-settings-group', 'twitter_handler', 'myfirst_sanitize_twitter_handler');
     register_setting( 'myfirst-settings-group', 'facebook_handler' );
     register_setting( 'myfirst-settings-group', 'gplus_handler' );
@@ -33,6 +34,7 @@ function myfirst_custom_settings() {
     add_settings_section( 'myfirst-sidebar-options', 'Sidebar Option', 'myfirst_sidebar_options', 'my_first' );
 
     add_settings_field( 'sidebar-name', 'Full Name', 'myfirst_sidebar_name', 'my_first', 'myfirst-sidebar-options' );
+    add_settings_field( 'sidebar-description', 'Description', 'myfirst_sidebar_description', 'my_first', 'myfirst-sidebar-options' );
     add_settings_field( 'sidebar-twitter', 'Twitter handler', 'myfirst_sidebar_twitter', 'my_first', 'myfirst-sidebar-options' );
     add_settings_field( 'sidebar-facebook', 'Facebook handler', 'myfirst_sidebar_facebook', 'my_first', 'myfirst-sidebar-options' );
     add_settings_field( 'sidebar-gplus', 'Google+ handler', 'myfirst_sidebar_gplus', 'my_first', 'myfirst-sidebar-options' );
@@ -47,6 +49,12 @@ function myfirst_sidebar_name() {
     $lastName = esc_attr( get_option( 'last_name' ) );
 
     echo '<input type="text" name="first_name" value="'.$firstName.'" placeholder="First Name" /> <input type="text" name="last_name" value="'.$lastName.'" placeholder="Last Name" />';
+}
+
+function myfirst_sidebar_description() {
+    $description = esc_attr( get_option( 'user_description' ) );
+
+    echo '<input type="text" name="user_description" value="'.$description.'" placeholder="Description" /><p class="description">Write something smart</p>';
 }
 
 function myfirst_sidebar_twitter() {

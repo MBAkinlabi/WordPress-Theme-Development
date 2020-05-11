@@ -1,8 +1,10 @@
-# Part 5 - WordPress Theme Development - Custom Social Media Fields and Sanitize Callbacks
-- You can duplicate the input. Just add space between them, but they'll be beside each other. 
-- Wow, now I know what `add_settings_field` really does. It just one line of input. The one line could have two forms of course. Maybe multiple forms. I'm starting to understand this WordPress thing. 
-- Talking about sanitization.
-- We have to add like `$input` as an arg into the sanitization callback function. the name can be anything. It represents whatever the value that the user inputs into the field. 
-- `sanitize_text_field` for sanitizing text. Always return inside it. Don't echo. Remember what's it's used for. Just sanitizing. Nothing else. It's a prebuilt function by WordPress. It can handle all the terrible typing that a user can input. Removes html and php
-- `str_replace` to replace something. This is from PHP. 
-- We included a paragraph description below the Twitter input area. Well it seem the CSS class `description` is made available by WordPress. I might come across it in the docs though.
+# Part 6 - WordPress Theme Development - Include CSS in the Administration Panel
+- If the CSS stylesheet is for the admin, the instructor likes to use `css/myfirst.admin.css` . You can also use `myfirst-admin.css` if you want. He just likes to use `.admin.css`
+- `wp_register_style` for registering the style
+- `wp_enqueue_style` for enqueueing or adding it.
+- Wow, I learned that I can inspect the elements of the section of the admin to find the `id` it's using. I can style that `id` with CSS. Also, it's usually `id=wpcontent` or `id=wpbody`. I can style that.
+- There's a problem, the style gets added throughout the pages of the admin. We don't want that. 
+- To get the page we're pass in `$hook` into your `myfirst_load_admin_scripts` and echo it. Refresh the page and inspect. Immediately after `body` you should find something like `toplevel_page_my_first` in my case. 
+- If you change page, you're going to have another variable there to reflect change of page. That's the hook you're echoing. Every page has it's own hook.
+- He did an if statement check to see if we're not on that page which means execution of that script will stop. We return immediately. The below code which registers the style won't be triggered.
+- Wow, we added styles and display the full name and description. 
