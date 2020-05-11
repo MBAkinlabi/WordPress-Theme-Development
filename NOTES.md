@@ -1,16 +1,8 @@
-# Part 4 - WordPress Theme Development - Create Custom Options with Settings API
-- It's recommended that you use the Settings API to take care of custom options and all other things. It gives you the security that you need. You know things like checkboxes or forms and all those other data that you could later store in the database.
-- Note that the `add_action` is inside the `myfirst_add_admin_page` so that it doesn't work if the function isn't triggered.
-- `register_setting` creates a section in the `wp_options` of the database. Record a custom group fields or settings. 
-- The third option in `register_setting` should be used if you're creating something that's particular and want to sanitize it. But in most cases, WordPress automatically takes care of that for us. 
-- Inside the `register_setting` you'll notice the group name is separated by `-` and the single option is separated by `_`. It's best practice to do that.
-- `add_settings_section` adds the section where we want to put the form
-- `do_settings_sections` to specify where the sections belong. 
-- To understand. Different forms belong in different sections. It's like having different forms and different sections on your page.
-- Perfect example is to go check the Permalink Settings and you'll see `Common Settings` and `Optional` Two different sections of forms on the same page.
-- `add_settings_field` to add custom fields. 
-- `submit_button` to submit the form. It has some args for customization. Leaving it empty gives you the default `Save Changes` text from WordPress.
-- `get_option` for getting the option we've registered. Like getting something from the database. 
-- `esc_attr` - Because it's somehow dangerous to use `get_option` in a field you want to continue to display. A malicious user could easily use that to make a database query. So use `esc_attr`
-- On the form, WordPress uses `action="options.php"` to load all the form anything. All the forms are pointed to `options.php`. It manages everything.
-- `settings_errors` should always be at the top of the form. It's the error message WordPress gives us when something is wrong.
+# Part 5 - WordPress Theme Development - Custom Social Media Fields and Sanitize Callbacks
+- You can duplicate the input. Just add space between them, but they'll be beside each other. 
+- Wow, now I know what `add_settings_field` really does. It just one line of input. The one line could have two forms of course. Maybe multiple forms. I'm starting to understand this WordPress thing. 
+- Talking about sanitization.
+- We have to add like `$input` as an arg into the sanitization callback function. the name can be anything. It represents whatever the value that the user inputs into the field. 
+- `sanitize_text_field` for sanitizing text. Always return inside it. Don't echo. Remember what's it's used for. Just sanitizing. Nothing else. It's a prebuilt function by WordPress. It can handle all the terrible typing that a user can input. Removes html and php
+- `str_replace` to replace something. This is from PHP. 
+- We included a paragraph description below the Twitter input area. Well it seem the CSS class `description` is made available by WordPress. I might come across it in the docs though.
