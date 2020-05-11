@@ -1,10 +1,16 @@
-# Part 3 - WordPress Theme Development - How to create Admin SubPages
-- Inside the `add_menu_page`, the 4th arg should have `_` separating words instead of `-`
-- Learned about `add_submenu_page` for adding submenu pages
-- WordPress automatically repeats the parent in the first child in the menu. So, it's the same thing automatically.
-- The slug of the parent and the first child should be the same so that clicking the parent opens the first submenu in the children. Calling the function.
-- Instructor explains `require_once` - that means if it's already required before, it's only going to be required once. Not twice in the file.
-- I learned how to display the `html` on the subpage. Wow, it's really cool. We created a separate page for html because it can be too complex to write full html in the function that returns the template. Because we may have to include JS and all that other stuff.
-- Got data of the blog name using the function `<?php bloginfo('name'); ?>`
-- Wow, we're displaying php already there.
-- This is the way WordPress works. It can be weird but you have to get used to it to build WordPress websites.
+# Part 4 - WordPress Theme Development - Create Custom Options with Settings API
+- It's recommended that you use the Settings API to take care of custom options and all other things. It gives you the security that you need. You know things like checkboxes or forms and all those other data that you could later store in the database.
+- Note that the `add_action` is inside the `myfirst_add_admin_page` so that it doesn't work if the function isn't triggered.
+- `register_setting` creates a section in the `wp_options` of the database. Record a custom group fields or settings. 
+- The third option in `register_setting` should be used if you're creating something that's particular and want to sanitize it. But in most cases, WordPress automatically takes care of that for us. 
+- Inside the `register_setting` you'll notice the group name is separated by `-` and the single option is separated by `_`. It's best practice to do that.
+- `add_settings_section` adds the section where we want to put the form
+- `do_settings_sections` to specify where the sections belong. 
+- To understand. Different forms belong in different sections. It's like having different forms and different sections on your page.
+- Perfect example is to go check the Permalink Settings and you'll see `Common Settings` and `Optional` Two different sections of forms on the same page.
+- `add_settings_field` to add custom fields. 
+- `submit_button` to submit the form. It has some args for customization. Leaving it empty gives you the default `Save Changes` text from WordPress.
+- `get_option` for getting the option we've registered. Like getting something from the database. 
+- `esc_attr` - Because it's somehow dangerous to use `get_option` in a field you want to continue to display. A malicious user could easily use that to make a database query. So use `esc_attr`
+- On the form, WordPress uses `action="options.php"` to load all the form anything. All the forms are pointed to `options.php`. It manages everything.
+- `settings_errors` should always be at the top of the form. It's the error message WordPress gives us when something is wrong.
