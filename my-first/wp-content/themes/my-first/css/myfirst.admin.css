@@ -4,7 +4,7 @@
 
 .myfirst-general-form,
 .myfirst-sidebar-preview { 
-    display: inline-block;
+    /* display: inline-block; */ /* Instructor made a mistake writing inline-blog. not sure he knows. It's not right and working well. Not sure it affects the code */
     float: left;
 }
 
@@ -32,7 +32,25 @@ h2.myfirst-description {
     margin: 0 0 10px;
 }
 
- .h2.myfirst-description {
-     font-size: 13px;
-     margin: 0 0 20px;
- }
+.h2.myfirst-description {
+    font-size: 13px;
+    margin: 0 0 20px;
+}
+
+.image-container {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.profile-picture {
+    width: 122px;
+    height: 122px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 20px auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

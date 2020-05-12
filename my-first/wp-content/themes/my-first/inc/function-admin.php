@@ -24,6 +24,7 @@ function myfirst_add_admin_page() {
 add_action( 'admin_menu', 'myfirst_add_admin_page' );
 
 function myfirst_custom_settings() {
+    register_setting( 'myfirst-settings-group', 'profile_picture' );
     register_setting( 'myfirst-settings-group', 'first_name' );
     register_setting( 'myfirst-settings-group', 'last_name' );
     register_setting( 'myfirst-settings-group', 'user_description' );
@@ -33,6 +34,7 @@ function myfirst_custom_settings() {
 
     add_settings_section( 'myfirst-sidebar-options', 'Sidebar Option', 'myfirst_sidebar_options', 'my_first' );
 
+    add_settings_field( 'sidebar-profile-picture', 'Profile Picture', 'myfirst_sidebar_profile', 'my_first', 'myfirst-sidebar-options' );
     add_settings_field( 'sidebar-name', 'Full Name', 'myfirst_sidebar_name', 'my_first', 'myfirst-sidebar-options' );
     add_settings_field( 'sidebar-description', 'Description', 'myfirst_sidebar_description', 'my_first', 'myfirst-sidebar-options' );
     add_settings_field( 'sidebar-twitter', 'Twitter handler', 'myfirst_sidebar_twitter', 'my_first', 'myfirst-sidebar-options' );
@@ -42,6 +44,12 @@ function myfirst_custom_settings() {
 
 function myfirst_sidebar_options() {
     echo 'Customize your Sidebar Information';
+}
+
+function myfirst_sidebar_profile() {
+    $picture = esc_attr( get_option( 'profile_picture' ) );
+
+    echo '<input type="button" value="Upload Profile Picture" class="button button-secondary" id="upload-button" /><input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />';
 }
 
 function myfirst_sidebar_name() {
