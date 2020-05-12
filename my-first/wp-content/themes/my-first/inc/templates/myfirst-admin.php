@@ -1,4 +1,4 @@
-<h1>MyFirst Theme Options</h1>
+<h1>MyFirst Sidebar Options</h1>
 <?php settings_errors(); ?>
 <?php 
     $picture = esc_attr( get_option( 'profile_picture' ) );
